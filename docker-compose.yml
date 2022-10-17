@@ -1,8 +1,17 @@
 version: "3"
 #Backend
 services:
+  # frontend:
+  #   build: ./frontend
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./frontend/:/usr/frontend
+  #     - /usr/frontend/node_modules
+  #   command: npm start 
+
   mern-chat-api:
-    build: ./
+    build: ./Backend
     ports:
       - "5000:5000"
     depends_on:
@@ -11,10 +20,10 @@ services:
       - MONGO_URI=mongodb://mongo:27017
       - JWT_SECRET=Darshan
       - PORT:5000
-    command: npm start
     volumes:
-      - .:/usr/mern-chat
+      - ./Backend/:/usr/mern-chat
       - /usr/mern-chat/node_modules
+    command: npm start
   
   mongo:
     image: mongo
