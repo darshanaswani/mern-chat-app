@@ -1,0 +1,23 @@
+version: "3"
+#Backend
+services:
+  mern-chat-api:
+    build: ./
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017
+      - JWT_SECRET=Darshan
+      - PORT:5000
+    command: npm start
+    volumes:
+      - .:/usr/mern-chat
+      - /usr/mern-chat/node_modules
+  
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
