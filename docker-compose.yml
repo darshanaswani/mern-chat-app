@@ -1,14 +1,14 @@
 version: "3"
 #Backend
 services:
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend/:/usr/frontend/
-      - /usr/frontend/node_modules
-    command: npm start 
+  # frontend:
+  #   build: ./frontend
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./frontend/:/usr/frontend/
+  #     - /usr/frontend/node_modules
+  #   command: npm start 
 
   mern-chat-api:
     build: ./Backend
